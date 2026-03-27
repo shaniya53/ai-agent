@@ -1,9 +1,5 @@
 def summarize_text(text: str) -> str:
-    # simple AI-like summarization (rule-based)
-    sentences = text.split(".")
-    summary = ".".join(sentences[:2]).strip()
+    sentences = [s.strip() for s in text.split(".") if s.strip()]
+    summary = ". ".join(sentences[:2])
 
-    if not summary:
-        return "No summary generated"
-
-    return summary
+    return summary if summary else "No summary generated"
